@@ -1,0 +1,45 @@
+{% extends 'base\base.html' %}
+{% block title %}
+<title>register</title>
+{% endblock title %}
+{% block content %}
+<div class="container" style=" margin-top: 0px; min-height:600px;">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="mb-3 text-white">Registration</h4>
+            <hr style="border-color: #b8bfc2;">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="" class="form-label text-white">User Name</label>
+                        {{form.username}}
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label text-white">User Email</label>
+                        {{form.email}}
+
+                    </div>
+                    <div class="mb-4">
+                        <label for="" class="form-label text-white">Password</label>
+                        {{form.password1}}
+
+                    </div>
+                    <div class="mb-4">
+                        <label for="" class="form-label text-white">Confirm Password</label>
+                        {{form.password2}}
+
+                    </div>
+                    <a href="{% url 'reg' %}" class="btn btn-primary">Register</a>
+                </form>
+                <p class="my-2 text-white">Already user ? <a class="btn btn-primary" href="{% url 'login' %}">Login Now</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

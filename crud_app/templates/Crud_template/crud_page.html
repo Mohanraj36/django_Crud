@@ -1,0 +1,50 @@
+{% extends 'base\base.html' %}
+{% block title %}
+<title>CRUD page</title>
+{% endblock %}
+
+<body>
+    {% block content %}
+    <div class="container pt-0">
+        <h2 class=" text-white">DJANGO CRUD PAGE </h2>
+        <p class=" text-white">Make Create Read Update Delete Your Belongs </p>
+        <div class="table-responsive">
+            <table class="table table-bordered table-dark table-hover text-center">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                            <h2>Notes</h2>
+                        </th>
+                        <th><a href="{% url 'insert_view' %}"><button class="btn btn-success btn-block me-2 my-2" style="width: 100%;">Add New</button></a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Created</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Customise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.created_date}}</td>
+                        <td>{{i.title}}</td>
+                        <td><a href="/crud/{{i.id}}" style="color: #fff;">{{ i.description | truncatewords:13}}</a></td>
+                        <td>
+                            <a href="/update_view/{{i.id}}"><button class="btn btn-primary me-2 my-2">Update</button></a>
+                            <a href="/delete/{{i.id}}"><button class="btn btn-danger me-2 my-2">Delete</button></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endblock %}
+</body>

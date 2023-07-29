@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-gradient bg-gray" style="padding: 25px;">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'index' %}"><i class="fa fa-cogs"></i> CRUD Application</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link active " aria-current="page" href="{% url 'index'  %}"> <i class="fa fa-home"></i> Home</a>
+        {% if request.user.is_authenticated != 1%}
+        <a class="nav-link active" href="{% url 'reg' %}"></i><i class="fa fa-users"></i> Register</a>
+        <a class="nav-link active" href="{% url 'login' %}"></i><i class="fa fa-sign-in"></i> Login</a>
+        {% else %}
+        <a href="#" class="nav-link active text" aria-current="page"><i class="fa fa-user"> Hi!
+            {{request.user|title}}</i></a>
+        <a class="nav-link active" aria-current="page" href="{% url 'logout'  %}"> <i class="fa fa-sign-out"></i>
+          Logout</a>
+        {% endif %}
+        <a class="nav-link active " href="{% url 'crud' %}"></i><i class="fa fa-cog"></i> CRUD </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<hr class="text-white">

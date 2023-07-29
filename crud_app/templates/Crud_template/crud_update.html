@@ -1,0 +1,55 @@
+{% extends 'base\base.html' %}
+{% block title %}
+<title>CRUD Update</title>
+{% endblock %}
+
+<body>
+    {% block content %}
+    <div class="container">
+        <h2 class=" text-white">DJANGO CRUD PAGE </h2>
+        <p class=" text-white">Make Create Read Update Delete Your Belongs </p>
+        <div class="table-responsive">
+            <table class="table table-bordered table-dark table-hover text-center">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>
+                            <h2>Notes</h2>
+                        </th>
+                        <th><a href="{% url 'crud' %}"><button class="btn btn-success btn-block me-2 my-2"
+                                    style="width: 100%;">Back</button></a>
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody class="align-middle">
+                    <form action="{% url 'update' %}" method="post">
+                        {% csrf_token %}
+                        <tr>
+                            <th>
+                                <h5>Title</h5>
+                            </th>
+                            <td><input type="text" name="title" style="width: 90%;" value="{{cs.title}}"></td>
+                            <th><input type="hidden" name="pid" value="{{cs.id}}"></th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h5>Description</h5>
+                            </th>
+                            <td><textarea name="description" cols="30" rows="9"
+                                    style="width: 90%;;">{{cs.description}}</textarea></td>
+                            <th></th>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td><button class="btn btn-success" style="width: 40%;">Update Notes</button></td>
+                            <td></td>
+                        </tr>
+                    </form>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endblock %}
+</body>
