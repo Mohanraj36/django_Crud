@@ -5,10 +5,10 @@
 {% endblock title %}
 
 {% block content %}
-<body style="background-color: #092e20; min-height:600px;">
+<body style="background-color: #092e20;">
 <div class="container">
     {% if request.user.is_authenticated %}
-    <div class="" style="text-align: center; padding-top: 30px;">
+    <div class="" style="text-align: center; padding-top: 30px; padding-bottom: 30%;">
         <h1 class=""><a style="color: aquamarine;" href="{% url 'crud' %}"> Create New</a></h1>
     </div>
     {% else %}
@@ -26,8 +26,8 @@
                         href="{% url 'reg' %}">Register</a>
                 </div>
                 <div class="p-4" style="display: flex; justify-content: space-evenly; ">
-                    <img src="{% static 'media/sc1.png' %}" style="width: 45%; object-fit: contain; border: solid 1px white; border-radius: 5px;" alt="">
-                    <img src="{% static 'media/sc2.png' %}" style="width: 45%; object-fit: contain; border: solid 1px white; border-radius: 5px;" alt="">
+                    <img src="{% static 'media\sc1.png' %}" style="width: 45%; object-fit: contain; border: solid 1px white; border-radius: 5px;" alt="">
+                    <img src="{% static 'media\sc2.png' %}" style="width: 45%; object-fit: contain; border: solid 1px white; border-radius: 5px;" alt="">
                 </div>
             </div>
         </div>
